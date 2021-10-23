@@ -47,15 +47,17 @@ const MovieSection = () => {
 
   const movieCardList = moviesArr.map((movie) => {
     return (
-      <li key={movie.imdbID}>
+      <li key={movie.imdbID} className='col-auto'>
         <MovieCard movieItem={movie}></MovieCard>
       </li>
     );
   });
   return (
     <main>
-      <section>
-        <ul className='list-unstyled'>{movieCardList}</ul>
+      <section className='container my-3'>
+        <ul className='list-unstyled row justify-content-center'>
+          {movieCardList}
+        </ul>
       </section>
     </main>
   );
