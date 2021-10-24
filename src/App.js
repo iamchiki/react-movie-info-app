@@ -10,14 +10,16 @@ function App() {
 
   const displayMovies = (movies) => {
     setMovies(movies);
+    // movieCtx.diaplayMovies(movies);
   };
 
   return (
     <MovieContext.Provider
       value={{
         movieList: movies,
+        diaplayMovies: displayMovies,
       }}>
-      <HeaderComponent onSearch={displayMovies}></HeaderComponent>
+      <HeaderComponent></HeaderComponent>
       <MovieSection></MovieSection>
     </MovieContext.Provider>
   );

@@ -19,7 +19,8 @@ const SearchForm = (props) => {
   const submitHandler = (e) => {
     e.preventDefault();
     movieCtx.movieList = [...arr];
-    props.onSearch(movieCtx.movieList);
+    movieCtx.diaplayMovies(movieCtx.movieList);
+    // props.onSearch(movieCtx.movieList);
   };
 
   return (
