@@ -1,12 +1,25 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import MovieContext from '../../store/movie-context';
 import ButtonComponent from './ButtonComponent';
 import Input from './Input';
 
-const SearchForm = () => {
+const SearchForm = (props) => {
   const inputRef = React.createRef();
+  const movieCtx = useContext(MovieContext);
+  const arr = [
+    {
+      Title: 'Uri: The Surgical Strike',
+      Year: '2019',
+      imdbID: 'tt8291224',
+      Type: 'movie',
+      Poster:
+        'https://m.media-amazon.com/images/M/MV5BMWU4ZjNlNTQtOGE2MS00NDI0LWFlYjMtMmY3ZWVkMjJkNGRmXkEyXkFqcGdeQXVyNjE1OTQ0NjA@._V1_SX300.jpg',
+    },
+  ];
   const submitHandler = (e) => {
     e.preventDefault();
-    console.log(inputRef.current.value);
+    movieCtx.movieList = [...arr];
+    props.onSearch(movieCtx.movieList);
   };
 
   return (
