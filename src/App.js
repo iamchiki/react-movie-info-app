@@ -1,27 +1,14 @@
-import React, { useContext, useState } from 'react';
+import React from 'react';
 import HeaderComponent from './components/HeaderComponent';
 import MovieSection from './components/MovieSection';
-import MovieContext from './store/movie-context';
+import MovieCtxProvider from './store/MovieCtxProvider';
 
 function App() {
-  const movieCtx = useContext(MovieContext);
-
-  const [movies, setMovies] = useState(movieCtx.movieList);
-
-  const displayMovies = (movies) => {
-    setMovies(movies);
-    // movieCtx.diaplayMovies(movies);
-  };
-
   return (
-    <MovieContext.Provider
-      value={{
-        movieList: movies,
-        diaplayMovies: displayMovies,
-      }}>
+    <MovieCtxProvider>
       <HeaderComponent></HeaderComponent>
       <MovieSection></MovieSection>
-    </MovieContext.Provider>
+    </MovieCtxProvider>
   );
 }
 
