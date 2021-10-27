@@ -3,10 +3,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import MovieCtxProvider from './store/MovieCtxProvider';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <MovieCtxProvider>
+      <App />
+    </MovieCtxProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

@@ -1,14 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import HeaderComponent from './components/HeaderComponent';
+import MovieDetail from './components/MovieDetail';
 import MovieSection from './components/MovieSection';
-import MovieCtxProvider from './store/MovieCtxProvider';
+import MovieContext from './store/movie-context';
 
 function App() {
+  const movieCtx = useContext(MovieContext);
   return (
-    <MovieCtxProvider>
+    <React.Fragment>
       <HeaderComponent></HeaderComponent>
-      <MovieSection></MovieSection>
-    </MovieCtxProvider>
+      {movieCtx.showMovieList && <MovieSection></MovieSection>}
+      {movieCtx.showMovieDtl && <MovieDetail></MovieDetail>}
+    </React.Fragment>
   );
 }
 
