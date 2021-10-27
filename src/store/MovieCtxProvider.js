@@ -1,32 +1,43 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useReducer, useState } from 'react';
 import MovieContext from './movie-context';
+
+const defaultState = {
+  showMovieInfo: false,
+  showMovieSection: false,
+};
+
+const movieReducer = (state, action) => {
+  if (action.type === 'movie-section') {
+    return { showMovieInfo: false, showMovieSection: true };
+  } else if (action.type === 'movie-info') {
+    return { showMovieInfo: true, showMovieSection: false };
+  }
+};
 
 const MovieCtxProvider = (props) => {
   const movieCtx = useContext(MovieContext);
 
   const [movies, setMovies] = useState(movieCtx.movieList);
-  const [showMovieInfo, setShowMovieInfo] = useState(false);
-  const [showMovieSection, setMovieSection] = useState(false);
+  const [movieState, dispatch] = useReducer(movieReducer, defaultState);
 
   const displayMovies = (movies) => {
     setMovies(movies);
-    setShowMovieInfo(false);
-    setMovieSection(true);
+    dispatch({ type: 'movie-section' });
   };
 
   const displayMovieInfo = (movieId) => {
-    setShowMovieInfo(true);
-    setMovieSection(false);
+    dispatch({ type: 'movie-info' });
+  };
+
+  const defaultValues = {
+    movieList: movies,
+    showMovieDtl: movieState.showMovieInfo,
+    showMovieList: movieState.showMovieSection,
+    diaplayMovies: displayMovies,
+    displayMovieInfo: displayMovieInfo,
   };
   return (
-    <MovieContext.Provider
-      value={{
-        movieList: movies,
-        showMovieDtl: showMovieInfo,
-        showMovieList: showMovieSection,
-        diaplayMovies: displayMovies,
-        displayMovieInfo: displayMovieInfo,
-      }}>
+    <MovieContext.Provider value={defaultValues}>
       {props.children}
     </MovieContext.Provider>
   );
