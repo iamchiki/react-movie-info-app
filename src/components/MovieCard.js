@@ -1,20 +1,23 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import MovieContext from '../store/movie-context';
 import classes from './MovieCard.module.css';
 
 const MovieCard = (props) => {
+  const movieCtx = useContext(MovieContext);
   const cardClasse = `card ${classes['movie-card']}`;
+  const movieDetailHandler = () => {
+    movieCtx.displayMovieInfo(props.movieItem.imdbID);
+  };
+
   return (
     <div className={cardClasse}>
       <img src={props.movieItem.Poster} className='card-img-top' alt='...' />
       <div className='card-body'>
-        <h5 className='card-title'>{props.movieItem.title}</h5>
-        <p className='card-text'>
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </p>
-        <a href='#' className='btn btn-primary'>
+        <h5 className='card-title'>{props.movieItem.Title}</h5>
+        <p className='card-text'>Release Year: {props.movieItem.Year}</p>
+        <button className='btn btn-primary' onClick={movieDetailHandler}>
           View Details
-        </a>
+        </button>
       </div>
     </div>
   );
