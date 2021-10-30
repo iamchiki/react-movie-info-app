@@ -10,7 +10,11 @@ function App() {
     <React.Fragment>
       <HeaderComponent></HeaderComponent>
       {movieCtx.showMovieList && <MovieSection></MovieSection>}
-      {movieCtx.showMovieDtl && <MovieDetail></MovieDetail>}
+      {movieCtx.showMovieDtl && (
+        <MovieDetail
+          id={movieCtx.movieId}
+          movieObj={movieCtx.movieInfo}></MovieDetail>
+      )}
     </React.Fragment>
   );
 }

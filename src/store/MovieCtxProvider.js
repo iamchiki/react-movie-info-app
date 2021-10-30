@@ -25,7 +25,9 @@ const MovieCtxProvider = (props) => {
     dispatch({ type: 'movie-section' });
   };
 
-  const displayMovieInfo = (movieId) => {
+  const displayMovieInfo = (id, obj) => {
+    movieCtx.movieId = id;
+    movieCtx.movieInfo = obj;
     dispatch({ type: 'movie-info' });
   };
 
@@ -35,6 +37,8 @@ const MovieCtxProvider = (props) => {
     showMovieList: movieState.showMovieSection,
     diaplayMovies: displayMovies,
     displayMovieInfo: displayMovieInfo,
+    movieId: movieCtx.movieId,
+    movieInfo: movieCtx.movieInfo,
   };
   return (
     <MovieContext.Provider value={defaultValues}>

@@ -5,8 +5,19 @@ import classes from './MovieCard.module.css';
 const MovieCard = (props) => {
   const movieCtx = useContext(MovieContext);
   const cardClasse = `card ${classes['movie-card']}`;
+
+  const fetchMovieDetail = async (id) => {
+    const response = await fetch(
+      `https://www.omdbapi.com/?apikey=3b8cf2cb&i=${id}`
+    );
+    const movieInfo = await response.json();
+    movieCtx.movieInfo = movieInfo;
+    movieCtx.displayMovieInfo(props.movieItem.imdbID, movieCtx.movieInfo);
+  };
+
   const movieDetailHandler = () => {
-    movieCtx.displayMovieInfo(props.movieItem.imdbID);
+    fetchMovieDetail(props.movieItem.imdbID);
+    console.log(movieCtx.movieInfo);
   };
 
   return (

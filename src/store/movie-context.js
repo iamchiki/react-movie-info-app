@@ -5,7 +5,9 @@ const MovieContext = React.createContext({
   showMovieDtl: false,
   showMovieList: false,
   diaplayMovies: (movies) => {},
-  displayMovieInfo: (id) => {},
+  displayMovieInfo: (id, obj) => {},
+  movieId: null,
+  movieInfo: null,
 });
 
 export default MovieContext;
