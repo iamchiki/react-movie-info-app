@@ -12,12 +12,11 @@ const MovieCard = (props) => {
     );
     const movieInfo = await response.json();
     movieCtx.movieInfo = movieInfo;
-    movieCtx.displayMovieInfo(props.movieItem.imdbID, movieCtx.movieInfo);
+    movieCtx.displayMovieInfo(movieCtx.movieInfo);
   };
 
   const movieDetailHandler = () => {
     fetchMovieDetail(props.movieItem.imdbID);
-    console.log(movieCtx.movieInfo);
   };
 
   return (

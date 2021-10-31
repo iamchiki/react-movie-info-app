@@ -11,9 +11,7 @@ function App() {
       <HeaderComponent></HeaderComponent>
       {movieCtx.showMovieList && <MovieSection></MovieSection>}
       {movieCtx.showMovieDtl && (
-        <MovieDetail
-          id={movieCtx.movieId}
-          movieObj={movieCtx.movieInfo}></MovieDetail>
+        <MovieDetail movieObj={movieCtx.movieInfo}></MovieDetail>
       )}
     </React.Fragment>
   );
