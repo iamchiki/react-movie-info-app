@@ -21,7 +21,10 @@ const MovieCard = (props) => {
 
   return (
     <div className={cardClasse}>
-      <img src={props.movieItem.Poster} className='card-img-top' alt='...' />
+      <img
+        src={props.movieItem.Poster}
+        className='card-img-top img-fluid img-thumbnail card-img-height'
+      />
       <div className='card-body'>
         <h5 className='card-title'>{props.movieItem.Title}</h5>
         <p className='card-text'>Release Year: {props.movieItem.Year}</p>
