@@ -7,19 +7,19 @@ const MovieSection = () => {
 
   const movieCardList = movieCtx.movieList.map((movie) => {
     return (
-      <li key={movie.imdbID} className='col-auto'>
+      <div key={movie.imdbID} className='col mt-3'>
         <MovieCard movieItem={movie}></MovieCard>
-      </li>
+      </div>
     );
   });
   return (
-    <main>
-      <section className='container my-3'>
-        <ul className='list-unstyled row justify-content-center'>
+    <div className='album py-5'>
+      <div className='container'>
+        <div className='row row-cols-1 row-cols-sm-2 row-cols-md-3'>
           {movieCardList}
-        </ul>
-      </section>
-    </main>
+        </div>
+      </div>
+    </div>
   );
 };
 
