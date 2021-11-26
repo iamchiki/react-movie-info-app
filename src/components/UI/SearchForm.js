@@ -29,12 +29,14 @@ const SearchForm = (props) => {
   };
 
   return (
-    <div>
-      <form className='form-inline my-2 my-lg-0' onSubmit={submitHandler}>
-        <Input ref={inputRef}></Input>
+    <form
+      className='col-12 col-lg-auto d-flex flex-column flex-lg-row'
+      onSubmit={submitHandler}>
+      <Input ref={inputRef}></Input>
+      <div className='align-self-center mt-3 mt-lg-0'>
         <ButtonComponent>Search</ButtonComponent>
-      </form>
-    </div>
+      </div>
+    </form>
   );
 };
 

@@ -3,9 +3,9 @@ import React from 'react';
 const Input = React.forwardRef((props, ref) => {
   return (
     <input
-      className='form-control mr-sm-2'
+      className='form-control form-control-dark mr-lg-3'
       type='search'
-      placeholder='Search'
+      placeholder='Enter Movie Name'
       aria-label='Search'
       ref={ref}
     />
