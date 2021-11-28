@@ -14,6 +14,7 @@ const MovieCard = (props) => {
   };
 
   const movieDetailHandler = () => {
+    movieCtx.setRequestStatus('pending');
     fetchMovieDetail(props.movieItem.imdbID);
   };
   return (

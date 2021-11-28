@@ -25,6 +25,7 @@ const SearchForm = (props) => {
 
   const submitHandler = (e) => {
     e.preventDefault();
+    movieCtx.setRequestStatus('pending');
     fetchMovies(inputRef.current.value);
   };
 

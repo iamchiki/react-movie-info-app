@@ -7,6 +7,8 @@ const MovieContext = React.createContext({
   diaplayMovies: (movies) => {},
   displayMovieInfo: (obj) => {},
   movieInfo: null,
+  isLoading: false,
+  setRequestStatus: (requestStatus) => {},
 });
 
 export default MovieContext;
