@@ -7,11 +7,16 @@ const defaultState = {
   isLoading: false,
   movieList: [],
   movieInfo: null,
+  error: {
+    showError: false,
+    message: null,
+  },
 };
 
 const movieReducer = (state, action) => {
   if (action.type === 'movie-section') {
     return {
+      ...defaultState,
       showMovieInfo: false,
       showMovieSection: true,
       isLoading: false,
@@ -19,6 +24,7 @@ const movieReducer = (state, action) => {
     };
   } else if (action.type === 'movie-info') {
     return {
+      ...defaultState,
       showMovieInfo: true,
       showMovieSection: false,
       isLoading: false,
@@ -26,7 +32,16 @@ const movieReducer = (state, action) => {
     };
   } else if (action.type === 'pending') {
     return {
+      ...defaultState,
       isLoading: true,
+    };
+  } else if (action.type === 'error') {
+    return {
+      ...defaultState,
+      error: {
+        showError: true,
+        message: action.payload,
+      },
     };
   }
 };
@@ -43,7 +58,10 @@ const MovieCtxProvider = (props) => {
   };
 
   const setRequestStatus = (requestStatus) => {
-    dispatch({ type: requestStatus });
+    dispatch({
+      type: requestStatus.statusType,
+      payload: requestStatus.message,
+    });
   };
 
   const defaultValues = {
@@ -55,6 +73,7 @@ const MovieCtxProvider = (props) => {
     movieInfo: movieState.movieInfo,
     isLoading: movieState.isLoading,
     setRequestStatus: setRequestStatus,
+    error: movieState.error,
   };
   return (
     <MovieContext.Provider value={defaultValues}>

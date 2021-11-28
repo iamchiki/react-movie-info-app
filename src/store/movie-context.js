@@ -9,6 +9,10 @@ const MovieContext = React.createContext({
   movieInfo: null,
   isLoading: false,
   setRequestStatus: (requestStatus) => {},
+  error: {
+    showError: false,
+    message: null,
+  },
 });
 
 export default MovieContext;

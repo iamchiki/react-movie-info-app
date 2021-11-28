@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import HeaderComponent from './components/HeaderComponent';
+import Error from './components/UI/Error';
 import MovieDetail from './components/MovieDetail';
 import MovieSection from './components/MovieSection';
 import Spinner from './components/UI/Spinner';
@@ -19,6 +20,9 @@ function App() {
       {movieCtx.showMovieList && <MovieSection></MovieSection>}
       {movieCtx.showMovieDtl && (
         <MovieDetail movieObj={movieCtx.movieInfo}></MovieDetail>
+      )}
+      {movieCtx.error.showError && (
+        <Error message={movieCtx.error.message}></Error>
       )}
     </React.Fragment>
   );

@@ -15,17 +15,22 @@ const SearchForm = (props) => {
         `https://www.omdbapi.com/?apikey=${API_KEY}=${queryText}`
       );
       const movies = await response.json();
+      if (movies.Error) {
+        throw new Error(movies.Error);
+      }
       movieCtx.movieList = [...movies.Search];
       movieCtx.diaplayMovies(movieCtx.movieList);
     } catch (error) {
-      console.log(error);
-      console.log(error.message);
+      movieCtx.setRequestStatus({
+        statusType: 'error',
+        message: error.message,
+      });
     }
   };
 
   const submitHandler = (e) => {
     e.preventDefault();
-    movieCtx.setRequestStatus('pending');
+    movieCtx.setRequestStatus({ statusType: 'pending' });
     fetchMovies(inputRef.current.value);
   };
 
