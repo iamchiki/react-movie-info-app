@@ -17,10 +17,31 @@ const MovieCard = (props) => {
     movieCtx.setRequestStatus({ statusType: 'pending' });
     fetchMovieDetail(props.movieItem.imdbID);
   };
+
+  const svg = (
+    <svg
+      className='card-img-top card-img svg-text-centered'
+      width='100%'
+      height='225'
+      xmlns='http://www.w3.org/2000/svg'
+      role='img'
+      aria-label='Placeholder: Thumbnail'
+      preserveAspectRatio='xMidYMid slice'
+      focusable='false'>
+      <title>Placeholder</title>
+      <rect width='100%' height='100%' fill='#55595c' />
+      <text x='50%' y='50%' fill='#eceeef' dy='.3em'>
+        Image Not Found
+      </text>
+    </svg>
+  );
+
+  const image = (
+    <img src={props.movieItem.Poster} className='card-img-top card-img' />
+  );
   return (
     <div className='card shadow-sm'>
-      <img src={props.movieItem.Poster} className='card-img-top card-img' />
-
+      {props.movieItem.Poster === 'N/A' ? svg : image}
       <div className='card-body'>
         <h5 className='card-title'>{props.movieItem.Title}</h5>
         <p className='card-text'>Release Year: {props.movieItem.Year}</p>

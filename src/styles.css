@@ -11,6 +11,9 @@
   align-items: center;
 }
 
+.svg-text-centered {
+  text-anchor: middle;
+}
 /* Small devices and medium devices */
 @media (max-width: 768px) {
   .movie-font {
