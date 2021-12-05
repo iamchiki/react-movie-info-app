@@ -19,7 +19,9 @@ const MovieDetail = (props) => {
     </svg>
   );
 
-  const image = <img src={props.movieObj.Poster} className='img-fluid' />;
+  const image = (
+    <img src={props.movieObj.Poster} alt='' className='img-fluid' />
+  );
   return (
     <React.Fragment>
       <div className='container-md movie-font'>

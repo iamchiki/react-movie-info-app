@@ -37,7 +37,11 @@ const MovieCard = (props) => {
   );
 
   const image = (
-    <img src={props.movieItem.Poster} className='card-img-top card-img' />
+    <img
+      src={props.movieItem.Poster}
+      alt=''
+      className='card-img-top card-img'
+    />
   );
   return (
     <div className='card shadow-sm'>
