@@ -44,7 +44,7 @@ const MovieCard = (props) => {
     />
   );
   return (
-    <div className='card shadow-sm'>
+    <div className='card h-100 shadow-sm'>
       {props.movieItem.Poster === 'N/A' ? svg : image}
       <div className='card-body'>
         <h5 className='card-title'>{props.movieItem.Title}</h5>
