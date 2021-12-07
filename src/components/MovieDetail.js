@@ -25,11 +25,11 @@ const MovieDetail = (props) => {
   return (
     <React.Fragment>
       <div className='container-md movie-font'>
-        <div className='card flex-md-row m-5'>
+        <div className='card card-block flex-md-row my-5 mx-sm-5 shadow-sm'>
           {props.movieObj.Poster === 'N/A' ? svg : image}
           <div className='card-body'>
             <h4 className='card-title'>{props.movieObj.Title}</h4>
-            <ul className='list-group '>
+            <ul className='list-group shadow-sm'>
               <li className='list-group-item'>{`Genre: ${props.movieObj.Genre}`}</li>
               <li className='list-group-item'>{`Released: ${props.movieObj.Released}`}</li>
               <li className='list-group-item'>{`IMDB Rating: ${props.movieObj.imdbRating}`}</li>
@@ -40,7 +40,7 @@ const MovieDetail = (props) => {
             </ul>
           </div>
         </div>
-        <div className='card m-5'>
+        <div className='card my-5 mx-sm-5 shadow-sm'>
           <div className='card-body'>
             <h4 className='card-title'>Plot</h4>
             <p>{props.movieObj.Plot}</p>

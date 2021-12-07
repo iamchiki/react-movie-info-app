@@ -19,6 +19,15 @@
   .movie-font {
     font-size: 0.9rem;
   }
+
+  .card-block {
+    display: block;
+  }
+
+  .card-block > img {
+    margin: 0 auto;
+    display: block;
+  }
 }
 
 @media (max-width: 576px) {
@@ -32,5 +41,24 @@
   .card {
     width: 80%;
     margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) and (min-width: 576px) {
+  .card-block > img {
+    max-height: 370px;
+  }
+}
+
+@media (max-width: 468px) {
+  .card-block,
+  .card-block + .card {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+
+  .card-block > img {
+    max-height: 370px;
+    width: 100%;
   }
 }
